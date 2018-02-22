@@ -27,7 +27,7 @@ autowd <- function() {
   	setwd(dirname(fileDir)) # Setting the working directory
 
   	## Detaching rStudioAPI
-  	detach("package:rstudioapi")
+  	# detach("package:rstudioapi") TODO: Remove this, if it works
   }
   else {
     setwd(system("pwd", intern = T))
