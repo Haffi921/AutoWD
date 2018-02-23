@@ -7,41 +7,48 @@
 #' @export
 
 
+# autowd <- function() {
+#   ## We need two solutions:
+#   ### One when user is using rStudio
+#   ### and one where the user is not using rStudio
+#   isRStudio <- Sys.getenv("RSTUDIO") == "1"
+#
+#   if (isRStudio) {
+#   	## This function needs the rStudioAPI package to run
+#   	if (!requireNamespace("rstudioapi", quietly = TRUE)) {
+#   		stop("Package \"rstudioapi\" needed for this function to work in RStudio.
+#   				 Please install it.",
+#   				 call. = FALSE)
+#   	}
+#
+#   	## Setting the the working directory
+#   	## to the path of the active document
+#   	fileDir <- rstudioapi::getActiveDocumentContext()$path # Get active document's path
+#   	setwd(dirname(fileDir)) # Setting the working directory
+#   }
+#   else {
+#   	switch (Sys.info()[['sysname']],
+#   		Windows = {
+#   			setwd(shell("cd", intern = T))
+#   			},
+#   		Linux = ,
+#   		Darwin = {
+#   			setwd(system("pwd", intern = T))
+#   			},
+#   		{
+#   			stop("Could not determine operating system.",
+#   					 call. = FALSE)
+#   		}
+#   	)
+#   }
+# }
+
+
+
 autowd <- function() {
-  ## We need two solutions:
-  ### One when user is using rStudio
-  ### and one where the user is not using rStudio
-  isRStudio <- Sys.getenv("RSTUDIO") == "1"
+	if(!requireNamespace("dirtools", quietly = TRUE)) {
+		stop("Package \"Haffi921/dirtools\" needed for this function to work. \nTo install do:\n  library(\"devtools\")\n  install_github(\"Haffi/dirtools\")")
+	}
 
-  if (isRStudio) {
-  	## This function needs the rStudioAPI package to run
-  	if (!requireNamespace("rstudioapi", quietly = TRUE)) {
-  		stop("Package \"rstudioapi\" needed for this function to work in RStudio.
-  				 Please install it.",
-  				 call. = FALSE)
-  	}
-
-  	## Setting the the working directory
-  	## to the path of the active document
-  	fileDir <- rstudioapi::getActiveDocumentContext()$path # Get active document's path
-  	setwd(dirname(fileDir)) # Setting the working directory
-
-  	## Detaching rStudioAPI
-  	# detach("package:rstudioapi") TODO: Remove this, if it works
-  }
-  else {
-  	switch (Sys.info()[['sysname']],
-  		Windows = {
-  			setwd(shell("cd", intern = T))
-  			},
-  		Linux = ,
-  		Darwin = {
-  			setwd(system("pwd", intern = T))
-  			},
-  		{
-  			stop("Could not determine operating system.",
-  					 call. = FALSE)
-  		}
-  	)
-  }
+	setwd(dirtools::get_path())
 }

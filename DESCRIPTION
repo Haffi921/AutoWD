@@ -1,15 +1,16 @@
 Package: AutoWD
 Title: Automatically Set Working Directory
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: person("Hafsteinn", "Ragnarsson", email = "haffi921@gmail.com", role = c("aut", "cre"))
 Description: Automatically sets working directory to the active document's path.
     It is recommended that the user calls 'autowd()' in the beginning of the script
     before a data file is imported.
-Depends: R (>= 3.4.3)
+Depends:
+    R (>= 3.4.3)
 Import:
-		utils::install.packages
-Suggested:
-		rstudioapi (>= 0.7)
+    devtools,
+    dirtools
+Remotes: Haffi921/dirtools
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
