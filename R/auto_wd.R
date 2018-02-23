@@ -30,6 +30,18 @@ autowd <- function() {
   	# detach("package:rstudioapi") TODO: Remove this, if it works
   }
   else {
-    setwd(system("pwd", intern = T))
+  	switch (Sys.info[['sysname']],
+  		Windows = {
+  			setwd(shell("cd", intern = T))
+  			},
+  		Linux = ,
+  		Darwin = {
+  			setwd(system("pwd", intern = T))
+  			},
+  		{
+  			stop("Could not determine operating system.",
+  					 call. = FALSE)
+  		}
+  	)
   }
 }
