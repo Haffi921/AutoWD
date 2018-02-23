@@ -7,8 +7,7 @@ Description: Automatically sets working directory to the active document's path.
     before a data file is imported.
 Depends:
     R (>= 3.4.3)
-Import:
-    devtools,
+Import: devtools,
     dirtools
 Remotes: Haffi921/dirtools
 License: GPL-3
