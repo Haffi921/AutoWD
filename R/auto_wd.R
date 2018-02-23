@@ -30,7 +30,7 @@ autowd <- function() {
   	# detach("package:rstudioapi") TODO: Remove this, if it works
   }
   else {
-  	switch (Sys.info[['sysname']],
+  	switch (Sys.info()[['sysname']],
   		Windows = {
   			setwd(shell("cd", intern = T))
   			},
