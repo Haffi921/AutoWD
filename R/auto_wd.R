@@ -11,7 +11,7 @@ autowd <- function() {
 		stop("Package \"Haffi921/dirtools\" needed for this function to work. \nTo install do:\n  library(\"devtools\")\n  install_github(\"Haffi/dirtools\")")
 	}
 
-	if(!interactive()) {
+	if(interactive()) {
 		setwd(dirname(dirtools::get_path()))
 	}
 	else {
