@@ -11,7 +11,9 @@ autowd <- function() {
 		stop("Package \"Haffi921/dirtools\" needed for this function to work. \nTo install do:\n  library(\"devtools\")\n  install_github(\"Haffi/dirtools\")")
 	}
 
-	if(interactive()) {
+	isRStudio <- Sys.getenv("RSTUDIO") == 1
+
+	if(isRStudio || !interactive()) {
 		setwd(dirname(dirtools::get_path()))
 	}
 	else {
