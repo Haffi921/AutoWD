@@ -5,10 +5,8 @@ Authors@R: person("Hafsteinn", "Ragnarsson", email = "haffi921@gmail.com", role 
 Description: Automatically sets working directory to the active document's path.
     It is recommended that the user calls 'autowd()' in the beginning of the script
     before a data file is imported.
-Depends:
-    R (>= 3.4.3)
-Imports: devtools,
-    dirtools
+Depends: R (>= 3.4.3)
+Imports: dirtools
 Remotes: Haffi921/dirtools
 License: GPL-3
 Encoding: UTF-8
