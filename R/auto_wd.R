@@ -11,19 +11,5 @@ autowd <- function() {
 		stop("Package \"Haffi921/dirtools\" needed for this function to work. \nTo install do:\n  library(\"devtools\")\n  install_github(\"Haffi/dirtools\")")
 	}
 
-	path <- dirtools::get_path()
-
-	tryCatch(setwd(path), error = function(e) {
-		setwd(dirname(path))
-	})
-
-	# isRStudio <- Sys.getenv("RSTUDIO") == 1
-	#
-	# if(isRStudio || !interactive()) {
-	# 	path <- tryCatch(dirtools::get_path(), error = function(e) {getwd()})
-	# 	setwd(path)
-	# }
-	# else {
-	# 	setwd(dirtools::get_path())
-	# }
+	setwd(dirtools::get_this_path()$path)
 }
