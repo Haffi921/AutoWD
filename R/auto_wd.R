@@ -14,7 +14,7 @@ autowd <- function() {
 	isRStudio <- Sys.getenv("RSTUDIO") == 1
 
 	if(isRStudio || !interactive()) {
-		try(setwd(dirname(dirtools::get_path())))
+		setwd(dirname(dirtools::get_path()))
 	}
 	else {
 		setwd(dirtools::get_path())
