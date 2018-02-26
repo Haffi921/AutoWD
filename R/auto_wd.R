@@ -18,5 +18,7 @@ autowd <- function(up_dir = 0) {
 		up_dir <- up_dir - 1
 	}
 
+	print(paste("Changing directory to:", wd))
+
 	setwd(wd)
 }
