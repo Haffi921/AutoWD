@@ -11,7 +11,7 @@ autowd <- function(quietly = TRUE) {
 		stop("Package \"Haffi921/dirtools\" needed for this function to work. \nTo install do:\n  library(\"devtools\")\n  install_github(\"Haffi/dirtools\")")
 	}
 
-	wd <- dirtools::get_this_dir()
+	# wd <- dirtools::get_this_dir()
 
 	# while(up_dir > 0) {
 	# 	wd <- dirname(wd)
@@ -19,8 +19,8 @@ autowd <- function(quietly = TRUE) {
 	# }
 
 	if(!quietly) {
-		print(paste("Changing directory to:", wd))
+		print(paste("Changing directory to:", dirtools::get_this_dir()))
 	}
 
-	setwd(wd)
+	setwd(dirtools::get_this_dir())
 }
