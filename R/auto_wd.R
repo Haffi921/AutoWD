@@ -6,16 +6,12 @@
 #' @keywords set working directory active document path
 #' @export
 
-pkg.globals <- new.env()
-
-pkg.globals$file_path <- dirtools::get_this_dir()
-
 autowd <- function(up_dir = 0, quietly = TRUE) {
 	if(!requireNamespace("dirtools", quietly = TRUE)) {
 		stop("Package \"Haffi921/dirtools\" needed for this function to work. \nTo install do:\n  library(\"devtools\")\n  install_github(\"Haffi/dirtools\")")
 	}
 
-	wd <- pkg.globals$file_path
+	wd <- dirtools::get_this_dir()
 
 	while(up_dir > 0) {
 		wd <- dirname(wd)
