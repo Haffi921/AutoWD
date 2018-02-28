@@ -11,6 +11,8 @@ autowd <- function(up_dir = 0, quietly = TRUE) {
 		stop("Package \"Haffi921/dirtools\" needed for this function to work. \nTo install do:\n  library(\"devtools\")\n  install_github(\"Haffi/dirtools\")")
 	}
 
+	AutoWD::autowd()
+
 	wd <- dirtools::get_this_dir()
 
 	while(up_dir > 0) {
