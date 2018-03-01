@@ -1,6 +1,6 @@
 Package: AutoWD
 Title: Automatically Set Working Directory
-Version: 0.3
+Version: 0.3.1
 Authors@R: person("Hafsteinn", "Ragnarsson", email = "haffi921@gmail.com", role = c("aut", "cre"))
 Description: Automatically sets working directory to the active document's path.
     It is recommended that the user calls 'autowd()' in the beginning of the script
